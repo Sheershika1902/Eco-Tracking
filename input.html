@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily CO₂ Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 { text-align: center; color: #2e8b57; }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background: #2e8b57;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover { background: #246b45; }
+
+        #result {
+            text-align: center;
+            background: #e0ffe0;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2e8b57;
+        }
+
+        .trip-row { display: flex; gap: 10px; }
+        .trip-row input, .trip-row select { flex: 1; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Daily CO₂ Input Form</h2>
+
+    <!-- Travel Section -->
+    <div id="travel-container">
+        <label>Travel:</label>
+        <div class="trip-row">
+            <input type="number" placeholder="Distance (km)" class="trip-distance">
+            <select class="trip-vehicle">
+                <option value="walking">Walking</option>
+                <option value="cycle">Cycle</option>
+                <option value="bike">Bike</option>
+                <option value="car">Car</option>
+                <option value="bus">Bus</option>
+                <option value="auto">Auto</option>
+                <option value="train">Train</option>
+            </select>
+        </div>
+    </div>
+    <button onclick="addTrip()">+ Add Trip</button>
+
+    <!-- Electricity -->
+    <label>Electricity Used (units):</label>
+    <input id="electricity" type="number" value="2">
+    <label>Electricity Type:</label>
+    <select id="electricityType">
+        <option value="grid">Grid</option>
+        <option value="solar">Solar</option>
+    </select>
+
+    <!-- Food -->
+    <label>Food:</label>
+    <select id="food">
+        <option value="vegMeal">Veg Meal</option>
+        <option value="chickenMeal">Chicken Meal</option>
+        <option value="eggMeal">Egg Meal</option>
+        <option value="fishMeal">Fish Meal</option>
+        <option value="junkFood">Junk Food</option>
+    </select>
+
+    <button onclick="calculate()">Calculate CO₂</button>
+
+    <h3 id="result"></h3>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
